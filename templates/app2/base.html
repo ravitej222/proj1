@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+       <title>newcourse</title>
+     {% endblock title %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <div>
+
+        <div class="header">
+            <h1>Django Web Development</h1>
+            <a href="{% url 'index' %}">HOME</a>
+            <a href="{% url 'app1:newcourse' %}">NEWCOURSE</a>
+            <a href="{% url 'app1:newcourse2' %}">NEWCOURSE-2</a>
+            <a href="{% url 'app1:newcourse3' %}">NEWCOURSE-3</a>
+            <a href="{% url 'app1:courses' %}">COURSES</a>
+        </div>
+
+        <div class="main">
+            {% block main %}
+            {% endblock main %}
+        </div>
+        <div class="footer">
+            <h1>Thanks</h1>
+        </div>
+    </div>
+</body>
+</html>

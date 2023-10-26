@@ -1,0 +1,17 @@
+{% extends 'app2\base.html' %}
+{% block main %}
+<form action="" method="post">
+      {% csrf_token %}
+      <br>
+    <label for="">cname</label>
+    <input type="text" name="cname" id="cname"><br><br>
+    <label for="">fee</label>
+    <input type="number" name="fee" id="fee"><br><br>
+    <label for="">dur</label>
+    <input type="number" name="dur" id="dur"><br><br>
+    <label for="">trainer</label>
+    <input type="text" name="trainer" id="trainer"><br><br>
+    <input type="submit" value="submit">
+    <input type="reset" value="cancel">
+</form>
+{% endblock main %}

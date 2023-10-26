@@ -1,0 +1,46 @@
+{% extends 'app2\base.html' %}
+{% block main %}
+{% block title %}
+    <title>{{title}}</title>
+{% endblock title %}
+<style>
+    table,td,th{
+        border: 2px solid rgb(223, 158, 158);
+        margin-left: auto;
+        margin-right: auto;
+        border-collapse: collapse;
+    }
+    table{
+      width:500px;
+      height: 50px;
+    }
+</style>
+    {{msg}}
+ <table style="text-align: center;">
+    <th>cname</th>
+    <th>fee</th>
+    <th>dur</th>
+    <th>trainer</th>
+    <th>Action</th>
+    
+    
+    {% for course in coursedata %}
+   <tr>
+      <td>{{course.cname}}</td>
+      <td>{{course.fee}}</td>
+      <td>{{course.dur}}</td>
+      <td>{{course.trainer}}</td>
+      <td>
+        <a href="{% url 'app1:updatecourse' course.id %}">
+            <button>update</button></a>
+      </td>
+      <td>
+        <form action="{% url 'app1:deletecourse' course.id %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" value="delete">
+        </form>
+      </td>  
+   </tr> 
+   {% endfor %}
+ </table>
+{% endblock main %}
